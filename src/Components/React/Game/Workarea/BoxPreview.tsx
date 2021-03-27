@@ -10,10 +10,6 @@ export interface BoxDragPreviewProps {
     title: string;
 }
 
-export interface BoxDragPreviewState {
-    tickTock: any;
-}
-
 export const BoxDragPreview: FC<BoxDragPreviewProps> = memo(function BoxDragPreview({ title }) {
     return (
         <div style={styles}>

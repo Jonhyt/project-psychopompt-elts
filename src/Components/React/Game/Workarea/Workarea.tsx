@@ -3,7 +3,7 @@ import update from "immutability-helper";
 import { useDrop } from "react-dnd";
 import { ItemTypes } from "./ItemTypes";
 import { DragItem } from "../../Interfaces/DragItem";
-import { DraggableBox } from "./DraggableItem";
+import { DraggableBox } from "./DraggableBox";
 
 const style: CSSProperties = {
     width: 500,

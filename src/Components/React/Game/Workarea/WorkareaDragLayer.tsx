@@ -11,6 +11,7 @@ const layerStyles: CSSProperties = {
     top: 0,
     width: "100%",
     height: "100%",
+    cursor: "pointer",
 };
 
 function getItemStyles(initialOffset: XYCoord | null, currentOffset: XYCoord | null) {
@@ -26,6 +27,7 @@ function getItemStyles(initialOffset: XYCoord | null, currentOffset: XYCoord | n
     return {
         transform,
         WebkitTransform: transform,
+        cursor: "pointer",
     };
 }
 
