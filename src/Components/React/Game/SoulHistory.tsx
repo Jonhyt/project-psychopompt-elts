@@ -1,16 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { GodNames } from "../../../Assets/SoulAssets/Gods";
 import { SoulDeathNames } from "../../../Assets/SoulAssets/SoulDeaths";
 import { SoulOcupationNames } from "../../../Assets/SoulAssets/SoulOccupations";
 import { TabooNames } from "../../../Assets/SoulAssets/Taboos";
-import { Soul } from "../../../Lib/Soul";
+import { AppState } from "../../../Store";
 
-export interface ISoulHistoryProps {
-    soul: Soul;
-}
-
-export const SoulHistory: React.FC<ISoulHistoryProps> = ({ soul }) => {
-    console.log(soul);
+export const SoulHistory: React.FC = () => {
+    const soul = useSelector((state: AppState) => state.world.currentSoul);
 
     return (
         <div style={{ textAlign: "left", border: "solid 1px", width: "max-content" }}>

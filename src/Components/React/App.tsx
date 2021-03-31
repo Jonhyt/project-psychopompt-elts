@@ -1,15 +1,14 @@
 import "../Sass/App.sass";
 import React from "react";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+
 import { Game } from "./Game/Game";
+import { Provider } from "react-redux";
+import { store } from "../../Store";
 
 export default function App() {
     return (
-        <DndProvider backend={HTML5Backend}>
-            {/* <Workarea />
-            <WorkareaDragLayer /> */}
+        <Provider store={store}>
             <Game />
-        </DndProvider>
+        </Provider>
     );
 }

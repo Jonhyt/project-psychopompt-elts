@@ -5,6 +5,5 @@ export function EnumToArray(e: any) {
         res.push(e[key]);
     }
     res = res.slice(res.length / 2);
-    console.log(res);
     return res;
 }

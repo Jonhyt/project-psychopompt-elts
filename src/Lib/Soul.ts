@@ -59,7 +59,6 @@ function getTaboos() {
 
 function getGods(): number[] {
     const gods = EnumToArray(Gods);
-    console.log(gods);
     const res: number[] = [];
     for (let g = 0; g < gods.length; g++) {
         if (RandomNumber(2) === 2) res.push(gods[g]);
