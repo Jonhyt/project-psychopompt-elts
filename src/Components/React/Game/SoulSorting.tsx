@@ -5,16 +5,18 @@ import { GodController } from "../../../Lib/Gods/GodController";
 import { AppState } from "../../../Store";
 
 export const SoulSorting: React.FC = () => {
-    const soul = useSelector((state: AppState) => state.world.currentSoul);
+    const { currentSoul, timerRunning } = useSelector((state: AppState) => state.world);
 
     return (
         <div>
             {GodController.gods.map((g) => (
-                <button key={g.id} onClick={() => GodController.onSort(soul, g.id)}>
+                <button key={g.id} onClick={() => GodController.onSort(currentSoul, g.id)} disabled={!timerRunning}>
                     {GodNames[g.id]}
                 </button>
             ))}
-            <button onClick={() => GodController.onSort(soul)}>Destroy</button>
+            <button onClick={() => GodController.onSort(currentSoul)} disabled={!timerRunning}>
+                Destroy
+            </button>
         </div>
     );
 };

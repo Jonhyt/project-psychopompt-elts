@@ -14,32 +14,20 @@ export const FatherGod: God = {
         switch (soul.occupation) {
             case SoulOcupations.King:
             case SoulOcupations.Priest:
-                approvalDelta += 2;
+                approvalDelta += 1;
                 break;
             case SoulOcupations.Thief:
                 approvalDelta--;
                 break;
         }
 
-        if (soul.worships.length > 0) {
-            //Dislikes if soul worships other Gods
-            approvalDelta -= soul.worships.reduce((sum, g) => (g === Gods.Father || sum === 1 ? 0 : 1));
+        //Dislikes if not worshipped, likes if worshipped
+        approvalDelta += soul.worships.includes(Gods.Father) ? 2 : -1;
 
-            //Dislikes if not worshipped, likes if worshipped
-            approvalDelta += soul.worships.find((g) => g === Gods.Father) ? 2 : -1;
-        }
+        approvalDelta += soul.worships.some((g) => g !== Gods.Father) ? -1 : 0;
 
         //Dislikes Blasphemy and Adultery
         if (soul.taboosBroken.includes(Taboos.Blasphemy) || soul.taboosBroken.includes(Taboos.Adultery)) approvalDelta--;
-
-        // soul.taboosBroken.forEach((t) => {
-        //     switch (t) {
-        //         case Taboos.Adultery:
-        //         case Taboos.Blasphemy:
-        //             approvalDelta--;
-        //             break;
-        //     }
-        // });
 
         return approvalDelta;
     },
@@ -49,12 +37,7 @@ export const FatherGod: God = {
         return approvalDelta;
     },
     onReject: function (soul: Soul) {
-        //Always dislikes when a soul is given to another God.
-        //Loses half the approval they'd get if soul was given to them
-        //If it's a soul they don't like, lose 1 approval
-        // const approvalDelta = Math.round(-Math.max(this.approvalDelta(soul), 1));
-
-        //-1 when the soul is rejected
+        //Dislikes when the soul is rejected
         const approvalDelta = -1;
         return approvalDelta;
     },

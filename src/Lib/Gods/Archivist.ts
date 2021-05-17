@@ -46,7 +46,7 @@ export const Archivist: God = {
     },
     onDestroy: function (soul: Soul) {
         //Dislikes a lot when souls are destroyed
-        const approvalDelta = Math.min(this.approvalDelta(soul), -1);
+        const approvalDelta = Math.min(-this.approvalDelta(soul), -1);
         return approvalDelta;
     },
     onSort: function (soul: Soul, god?: Gods) {

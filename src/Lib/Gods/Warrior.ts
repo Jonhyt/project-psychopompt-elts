@@ -19,7 +19,7 @@ export const WarriorGod: God = {
             case SoulOcupations.General:
                 approvalDelta += 2;
                 break;
-            case SoulOcupations.Scholar:
+            case SoulOcupations.Soldier:
                 approvalDelta++;
         }
 
